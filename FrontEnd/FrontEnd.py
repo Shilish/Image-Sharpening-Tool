@@ -1,4 +1,7 @@
-from tkinter import *
+try:
+    from tkinter import *
+except ImportError:
+    raise ImportError("Please install Tcl/Tk.")
 from  tkinter import messagebox
 from tkinter import filedialog
 from PIL import ImageTk,Image
