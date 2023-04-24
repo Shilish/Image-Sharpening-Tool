@@ -1,9 +1,12 @@
-from tkinter import *
+try:
+    from tkinter import *
+except ImportError:
+    raise ImportError("Please install Tcl/Tk.")
 from  tkinter import messagebox
 from tkinter import filedialog
 from PIL import ImageTk,Image
 import cv2
-import numpy as np
+import os
 
 window = Tk()
 
@@ -11,7 +14,10 @@ window.title("NIO Internship")
 window.config(bg='#e1f1f7')
 window.geometry("1280x720")
 
-logo_img = ImageTk.PhotoImage(Image.open("nio.png"))
+dirname = os.path.dirname(__file__)
+logo_path = os.path.join(dirname, "..", "nio.png")
+
+logo_img = ImageTk.PhotoImage(Image.open(logo_path))
 logo_label = Label(image=logo_img)
 logo_label.grid(row=0, column=0, columnspan=3)
 
